@@ -1,23 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
+import { EleccionJugadas } from './componentes/EleccionJugadas';
+import { InterfazUsuario } from './componentes/InterfazUsuario';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" id="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Hola Mundo React
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        Juego
       </header>
+      <InterfazUsuario/>
+      <EleccionJugadas/>
     </div>
   );
 }
