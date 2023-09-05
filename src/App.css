@@ -1,22 +1,11 @@
 /* Estilos para el Body */
 body {
-  background-image: url(sprites/juegoppt.png);
+  /*background-image: url(sprites/juegoppt.png);*/
 }
 
 /* Estilos para el div que tiene el ./src/App.js*/
 .App {
   text-align: center;
-}
-
-/* Estilos de validacion de texto corto */
-.rojo {
-  background: red;
-  color: #fff;
-}
-
-.verde {
-  background: green;
-  color: #fff;
 }
 
 /* Estilos para el Header */
