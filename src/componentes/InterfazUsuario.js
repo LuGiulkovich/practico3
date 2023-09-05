@@ -23,14 +23,13 @@ export const InterfazUsuario = () => {
         <div className='InterfazUsuario'>
             <h1>Piedra, Papel y Tijeras</h1>
             <p>Ingresa tu Nombre</p>
-            <input type='text' onChange = {e => cambiarNombre(e.target.value)}/>
-
-            <p>Mi nombre es:</p>
-            <p>{nombre}</p>
-
+            <input type='text' onChange={e => cambiarNombre(e.target.value)} />
             <button onClick={() => {
                 console.log("El valor guardado en tu estado es: ", nombre);
             }}>Guardar Nombre</button>
+
+            <p>Mi nombre es:</p>
+            <p>{nombre}</p>
         </div>
     );
 }
