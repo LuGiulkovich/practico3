@@ -2,6 +2,9 @@
 
 Este proyecto está destinado a aplicar los conocimientos vistos sobre React, haciendo un remodel del tradicional juego Piedra, Papel y Tijeras.
 
+Aquí está el link para entrar:
+* [practico3] (https://lugiulkovich.github.io/practico3/)
+
 ## Aprendiendo sobre la marcha
 
 ### Estados de React
