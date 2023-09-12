@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import { JugadaPC } from './JugadaPC';
 
 /** Componente que muestra la opcion elegida, tanto del boton del usuario como la de la pc */
-export const EleccionJugadas = ({siCambiarEleccionJugador}) => {
+export const EleccionJugadas = ({siCambiarEleccionJugador, siJugadaAleatoria}) => {
   /** Este estado devuelve el texto del boton. String */
   const [eleccionJugador, setEleccionJugador] = useState('');
 
@@ -17,7 +18,7 @@ export const EleccionJugadas = ({siCambiarEleccionJugador}) => {
       <button onClick={() => handleClick('Piedra')}>Piedra</button>
       <button onClick={() => handleClick('Papel')}>Papel</button>
       <button onClick={() => handleClick('Tijeras')}>Tijeras</button>
-      <p>Eleccion Jugador: {eleccionJugador}</p>
+      <JugadaPC siJugadaAleatoria={siJugadaAleatoria}/>
     </div>
   )
 }

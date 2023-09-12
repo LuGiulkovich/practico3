@@ -29,6 +29,13 @@
   border: 3px solid #000;
 }
 
+/* Estilos para la interfaz de las estadisticas */
+.Ganador {
+  margin: 15px auto;
+  background: #fff;
+  border: 3px solid #000;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
