@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './App.css';
 import { InterfazUsuario } from './componentes/InterfazUsuario';
 import { EleccionJugadas } from './componentes/EleccionJugadas';
-import { JugadaPC } from './componentes/JugadaPC';
 
 function App() {
   /** Creo los estados */
