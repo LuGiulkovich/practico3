@@ -1,35 +1,28 @@
 import React, { useState } from 'react';
 
-/** Creo el componente InterfazUsiario */
-export const InterfazUsuario = () => {
-    const [nombre, setNombre] = useState('');
+/** Creo el componente InterfazUsuario */
+/** Este componente recibe un prop para cambiar el nombre */
+export const InterfazUsuario = ({siCambiarNombreJugador}) => {
+    const [nombreJugador, setNombreJugador] = useState('');
 
-    /** Agrego una funcion para determinar que el campo ingresado no esté vacio */
-    const cambiarNombre = (nuevoNombre) => {
-        if (nuevoNombre === '') {
-            /** Si el campo del imput está vacío */
-            setNombre('No puede estar vacío');
-            /** Me dice 'No puede estar vacío' */
-            /** Ya que 'setNombre' actualiza el valor de 'nombre' */
-        } else {
-            /** Sino le da el valor del nombre ingresado a 'nombre' */
-            setNombre(nuevoNombre);
-        }
+    /** Esta funcion toma el nombre ingresado por el input y la guarda */
+    const cambiarNombre = (e) => {
+        setNombreJugador(e.target.value);
     }
 
-    /** Este componente me retorna un div */
     return (
-        /** Con la clase 'InterfazUsuario' */
         <div className='InterfazUsuario'>
-            <h1>Piedra, Papel y Tijeras</h1>
-            <p>Ingresa tu Nombre</p>
-            <input type='text' onChange={e => cambiarNombre(e.target.value)} />
-            <button onClick={() => {
-                console.log("El valor guardado en tu estado es: ", nombre);
-            }}>Guardar Nombre</button>
-
-            <p>Mi nombre es:</p>
-            <p>{nombre}</p>
+            <label>
+                Ingresa tu Nombre:
+                <input 
+                    type='text' 
+                    value={nombreJugador} 
+                    onChange={cambiarNombre} 
+                />
+            </label>
+            <button onClick={ () => siCambiarNombreJugador(nombreJugador)}>
+                Confirmar Nombre
+            </button>
         </div>
     );
 }
