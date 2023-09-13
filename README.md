@@ -56,3 +56,31 @@ const handleClick = (textoBoton) => {
     siCambiarEleccionJugador(textoBoton);
   }
 ~~~
+
+### 4to Error: Don funciones en un solo botón
+Tuve problemas para hacer que el boton de "Jugar" comenzara el juego. Mi codigo era este:
+
+~~~
+const jugadaAleatoria = () => {
+    setEleccionPC(Math.floor(Math.random() * (2 - 0 + 1) + 0));
+    siJugadaAleatoria(eleccionPC);
+    siEmpezarJuego();
+  }
+~~~
+
+Hasta que lo cambie de lugar para corregirlo.
+
+~~~
+<button
+  onClick={() => {
+    jugadaAleatoria();
+    siEmpezarJuego();
+}}>Jugar</button>
+~~~
+
+>Me funciona pero me da un delay en la aparicion de la opcion de la pc.
+
+### 5to Error: No aparece el primer valor de mi estado
+Logré que el juego me mostrara la opcion elegida por la PC (tanto el nombre de la opcion como el numero para comprarar con el del usuario). Pero al momento de empezar a juhgar, en la primer partida no me muestra el nombre de la opcion en pantalla. Pero solo esta primer partida es la que no me la muestra.
+
+>Arreglar aparicion de la opcion de la pc.
