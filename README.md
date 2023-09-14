@@ -81,6 +81,27 @@ Hasta que lo cambie de lugar para corregirlo.
 >Me funciona pero me da un delay en la aparicion de la opcion de la pc.
 
 ### 5to Error: No aparece el primer valor de mi estado
+
+#### Delay en la opcion obtenida por la PC
+
 Logré que el juego me mostrara la opcion elegida por la PC (tanto el nombre de la opcion como el numero para comprarar con el del usuario). Pero al momento de empezar a juhgar, en la primer partida no me muestra el nombre de la opcion en pantalla. Pero solo esta primer partida es la que no me la muestra.
 
 >Arreglar aparicion de la opcion de la pc.
+
+Para arreglar este problemilla hice lo siguiente:
+
+~~~
+const jugadaAleatoria = (numeroPC) => {
+    if (numeroPC === 0) {
+      setNuevaJugadaPC('Piedra');
+    }
+}
+~~~
+
+En App.js a la funcion que me recibe el numero del componente que me genera el numero aleatorio le agregué un nuevo estado dependiendo de cual haya sido ese numero. En este caso piedra y me lo da a nuevo valor actualizado.
+
+#### Delay en la aparicion del resultado
+
+Como en el anterior caso, el resultado de la ronda tarda un "render" en aparecer por pantalla.
+
+>Arreglar aparicion del resultado de la ronda.
