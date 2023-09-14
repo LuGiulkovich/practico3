@@ -104,4 +104,10 @@ En App.js a la funcion que me recibe el numero del componente que me genera el n
 
 Como en el anterior caso, el resultado de la ronda tarda un "render" en aparecer por pantalla.
 
->Arreglar aparicion del resultado de la ronda.
+> Arreglar aparicion del resultado de la ronda.
+
+#### Delay en la aparicion del puntaje
+
+El juego al marcar los puntajes tarda una ronda en mostrar los resultados. Sigo sin saber como solucionar este error.
+
+> Arreglar delat en el puntaje.

@@ -12,6 +12,9 @@ function App() {
   const [jugadaPC, setJugadaPC] = useState('');
   const [nuevaJugadaPC, setNuevaJugadaPC] = useState('');
   const [resultado, setResultado] = useState('');
+  const [ronda, setRonda] = useState(0);
+  const [puntoJugador, setPuntoJugador] = useState(0);
+  const [puntoPC, setPuntoPC] = useState(0);
 
   /** Funcion para cambiar el nombre del jugador en App */
   const cambiarNombreJugador = (nombreJugador) => {
@@ -41,26 +44,34 @@ function App() {
         setResultado('Empate');
       } else if (jugadaPC === 1) {
         setResultado('Perdiste');
+        setPuntoPC(puntoPC + 1);
       } else if (jugadaPC === 2) {
         setResultado('Ganaste');
+        setPuntoJugador(puntoJugador + 1);
       }
     } else if (eleccionJugador === 'Papel') {
       if (jugadaPC === 0) {
         setResultado('Ganaste');
+        setPuntoJugador(puntoJugador + 1);
       } else if (jugadaPC === 1) {
         setResultado('Empate');
       } else if (jugadaPC === 2) {
         setResultado('Perdiste');
+        setPuntoPC(puntoPC + 1);
       }
     } else if (eleccionJugador === 'Tijeras') {
       if (jugadaPC === 0) {
         setResultado('Perdiste');
+        setPuntoPC(puntoPC + 1);
       } else if (jugadaPC === 1) {
         setResultado('Ganaste');
+        setPuntoJugador(puntoJugador + 1);
       } else if (jugadaPC === 2) {
         setResultado('Empate');
       }
     }
+    setRonda(ronda + 1);
+
     console.log(eleccionJugador);
     console.log(jugadaPC);
     console.log(nuevaJugadaPC);
@@ -73,7 +84,14 @@ function App() {
         <InterfazUsuario siCambiarNombreJugador={cambiarNombreJugador}/>
         <EleccionJugadas siCambiarEleccionJugador={cambiaEleccionJugador}/>
         <JugadaPC siJugadaAleatoria={jugadaAleatoria} siEmpezarJuego={empezarJuego}/>
-        <Estadisticas siNombreJugador={nombreJugador} siEleccionJugador={eleccionJugador} siNuevaJugadaPC={nuevaJugadaPC} siResultado={resultado} />
+        <Estadisticas siNombreJugador={nombreJugador} 
+          siEleccionJugador={eleccionJugador} 
+          siNuevaJugadaPC={nuevaJugadaPC} 
+          siResultado={resultado} 
+          siRonda={ronda}
+          siPuntoJugador={puntoJugador}
+          siPuntoPC={puntoPC}
+        />
       </div>
     );
   }
