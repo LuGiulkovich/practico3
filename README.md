@@ -111,3 +111,12 @@ Como en el anterior caso, el resultado de la ronda tarda un "render" en aparecer
 El juego al marcar los puntajes tarda una ronda en mostrar los resultados. Sigo sin saber como solucionar este error.
 
 > Arreglar delat en el puntaje.
+
+#### Delay en la aparicion del ganador
+
+En fin, la misma historia que los puntos anteriores.
+
+#### Solucion a los delays
+
+Bueno, simple y llanamente cambie todo mi código a una forma que me funcionara y de manera simple logré mantener actualizado los valores de los cuales tenia en delay jaja.
+La solucion fue poner todo en variables para que se actualizaran al toque, ahora solo queda mandarlos al DOM.

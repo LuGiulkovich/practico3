@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 /** Componente que muestra la opcion elegida, tanto del boton del usuario como la de la pc */
-export const EleccionJugadas = ({siCambiarEleccionJugador, siJugadaAleatoria}) => {
+export const EleccionJugadas = ({siCambiarEleccionJugador}) => {
   /** Este estado devuelve el texto del boton. String */
   const [eleccionJugador, setEleccionJugador] = useState('');
 
