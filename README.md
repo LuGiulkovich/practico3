@@ -57,7 +57,7 @@ const handleClick = (textoBoton) => {
   }
 ~~~
 
-### 4to Error: Don funciones en un solo botón
+### 4to Error: Dos funciones en un solo botón
 Tuve problemas para hacer que el boton de "Jugar" comenzara el juego. Mi codigo era este:
 
 ~~~
@@ -80,6 +80,16 @@ Hasta que lo cambie de lugar para corregirlo.
 
 >Me funciona pero me da un delay en la aparicion de la opcion de la pc.
 
+(UPDATE) 23/9/2023:
+
+Lo cambie a todo para que en una sola funcion se ejecutaran tanton la jugada aleatoria como el juego en si.
+~~~
+<button
+  onClick={() => {
+    juego();
+}}>Jugar</button>
+~~~
+
 ### 5to Error: No aparece el primer valor de mi estado
 
 #### Delay en la opcion obtenida por la PC
@@ -100,23 +110,51 @@ const jugadaAleatoria = (numeroPC) => {
 
 En App.js a la funcion que me recibe el numero del componente que me genera el numero aleatorio le agregué un nuevo estado dependiendo de cual haya sido ese numero. En este caso piedra y me lo da a nuevo valor actualizado.
 
+(UPDATE) 23/9/2023: 
+
+Logré solucionar este delay, la solucion fue crear una funcion que me llevara el dasto obtenido por el juego (que genera de forma aleatoria el resultado de la pc) a otra funcion el el compo ente padre que recibia y actualizaba ese dato para luego pasarlo al compente que contiene las estadisticas del juego.
+
 #### Delay en la aparicion del resultado
 
 Como en el anterior caso, el resultado de la ronda tarda un "render" en aparecer por pantalla.
 
 > Arreglar aparicion del resultado de la ronda.
 
-#### Delay en la aparicion del puntaje
+(UPDATE) 23/9/2023: 
 
-El juego al marcar los puntajes tarda una ronda en mostrar los resultados. Sigo sin saber como solucionar este error.
-
-> Arreglar delat en el puntaje.
-
-#### Delay en la aparicion del ganador
-
-En fin, la misma historia que los puntos anteriores.
+Para solucionar esto volvi a hacer lo mismo que en la seccion anterior jaja.
 
 #### Solucion a los delays
 
 Bueno, simple y llanamente cambie todo mi código a una forma que me funcionara y de manera simple logré mantener actualizado los valores de los cuales tenia en delay jaja.
 La solucion fue poner todo en variables para que se actualizaran al toque, ahora solo queda mandarlos al DOM.
+
+(UPDATE) 23/9/20223:
+
+La solucion para los delay que estaba teniendo era que no los llamaba correctamente ó no colocaba las funciones que me tomaban los vlaores de los datos que queria pasar entre componentes.
+
+### las variables numericas no se suman
+En este caso tengo los siguiente problemas:
+
+#### Las rondas no se suman
+Tengo e¿la siguiente linea de codigo:
+
+~~~
+let numeroRonda = 0;
+
+const juego = () => {
+  ...
+
+  numeroRonda += 1;
+}
+~~~
+
+Se suponer que cada vez que haga click en el boton que ejecuta el juego el numero de rondas deberia aumentar, bueno no es el caso.
+
+>Arreglar suma de variables
+
+Para arreglar este problema lo que hice fue crear un estado para las Rondas en este caso y sumarlar en una funcion que luego la agregaria en la funcion que contiene el juego.
+
+#### El puntaje del jugador no se suma
+
+Asi como el titulo dice, estoy probando distintos medios para que se sume dependiendo de quien valla ganando la ronda pero el puntaje lo unico que hace es reinciarse? o algo raro xD.
