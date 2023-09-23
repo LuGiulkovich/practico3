@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 
-export const Juego = ({siEleccionJugador, siCambiarELeccionPC, siCambiarResultadoRonda}) => {
+export const Juego = ({siEleccionJugador, siCambiarELeccionPC, siCambiarResultadoRonda, siCambiarRonda}) => {
 
   /** Estados  */
   const [eleccionPC, setEleccionPC] = useState('');
   const [resultadoRonda, setResultadoRonda] = useState('');
   /** Estado para contar las rondas */
-  const [numRonda, setNumRonda] = useState(0);
+  const [numRonda, setNumRonda] = useState(1);
 
   /** --- Variables --- */
   /** Guarda un numero random entre 0, 1 y 2 */
@@ -17,10 +17,6 @@ export const Juego = ({siEleccionJugador, siCambiarELeccionPC, siCambiarResultad
   let opcionPC;
   /** Contiene el resultado */
   let resultado = '';
-
-
-  let puntajePC = 0;
-  let puntajeJugador = 0;
 
   /** Devuelve el numero aleatorio y declara la opcion de la PC correspondiente */
   const jugadaAleatoria = () => {
@@ -44,22 +40,26 @@ export const Juego = ({siEleccionJugador, siCambiarELeccionPC, siCambiarResultad
     puntoPC = numAleatorio;
   }
 
-  /** Funcion que suma en 1 el puntaje del jugador */
+  /** Funcion que suma en 1 el puntaje del jugador 
   const sumaU = () => {
-    puntajeJugador += 1;
-  }
+    setPuntajeJugador(puntajeJugador + 1);
+    siCambiarPuntajeU(puntajeJugador);
+  }*/
 
-  /** Funcion que suma en 1 el puntaje de la PC */
+  /** Funcion que suma en 1 el puntaje de la PC 
   const sumaP = () => {
-    puntajePC += 1;
-  }
+    setPuntajePC(puntajePC + 1);
+    siCambiarPuntajeP(puntajePC);
+  }*/
 
   const sumarRonda = () => {
     setNumRonda(numRonda + 1);
+    siCambiarRonda(numRonda);
   }
 
   /** Funcion que contiene el juego */
   const juego = () => {
+    /** Sumamos la Ronda */
     sumarRonda();
     /** Genero el numero aleatorio */
     jugadaAleatoria();
@@ -70,28 +70,22 @@ export const Juego = ({siEleccionJugador, siCambiarELeccionPC, siCambiarResultad
         resultado = 'Empate';
       } else if (puntoPC === 1) {
         resultado = 'Perdiste';
-        sumaP();
       } else if (puntoPC === 2) {
         resultado = 'Ganaste';
-        sumaU();
       }
     } else if (siEleccionJugador === 'Papel') {
       if (puntoPC === 0) {
         resultado = 'Ganaste';
-        sumaU();
       } else if (puntoPC === 1) {
         resultado = 'Empate';
       } else if (puntoPC === 2) {
         resultado = 'Perdiste';
-        sumaP();
       }
     } else if (siEleccionJugador === 'Tijeras') {
       if (puntoPC === 0) {
         resultado = 'Perdiste';
-        sumaP();
       } else if (puntoPC === 1) {
         resultado = 'Ganaste';
-        sumaU();
       } else if (puntoPC === 2) {
         resultado = 'Empate';
       }
@@ -108,11 +102,8 @@ export const Juego = ({siEleccionJugador, siCambiarELeccionPC, siCambiarResultad
     console.clear();
     console.log('Ronda: ' + numRonda);
     console.log('El jugador elige: ' + siEleccionJugador);
-    console.log('Numero pc: ' + puntoPC);
     console.log('Eleccion pc: ' + opcionPC);
     console.log('Resultado de la ronda: ' + resultado);
-    console.log('Puntaje del jugador: ' + puntajeJugador);
-    console.log('Puntaje de la PC: ' + puntajePC);
   }
 
   return (

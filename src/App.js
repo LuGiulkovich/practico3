@@ -4,6 +4,7 @@ import { InterfazUsuario } from './componentes/InterfazUsuario';
 import { EleccionJugadas } from './componentes/EleccionJugadas';
 import { Juego } from './componentes/Juego';
 import { Estadisticas } from './componentes/Estadisticas';
+import { Ganador } from './componentes/Ganador';
 
 function App() {
   /** Creo los estados */
@@ -11,6 +12,9 @@ function App() {
   const [eleccionJugador, setEleccionJugador] = useState('');
   const [eleccionPC, setEleccionPC] = useState('');
   const [resultadoRonda, setResultadoRonda] = useState('');
+  const [numeroRonda, setNumeroRonda] = useState(0);
+  const [puntajeU, setPuntajeU] = useState(0);
+  const [puntajeP, setPuntajeP] = useState(0);
 
   /** Funcion para cambiar el nombre del jugador en App */
   const cambiarNombreJugador = (nombreJugador) => {
@@ -28,9 +32,18 @@ function App() {
 
   const cambiarResultadoRonda = (resultadoRonda) => {
     setResultadoRonda(resultadoRonda);
+    if (resultadoRonda === 'Ganaste') {
+      setPuntajeU(puntajeU + 1);
+    } else if (resultadoRonda === 'Perdiste') {
+      setPuntajeP(puntajeP + 1);
+    }
   }
-  
-    return (
+
+  const cambiarRonda = (ronda) => {
+    setNumeroRonda(ronda)
+  }
+
+     return (
       <div className="App" id="App">
         <h1 className='App-header'>Juego de Piedra, Papel y Tijeras</h1>
         <InterfazUsuario siCambiarNombreJugador={cambiarNombreJugador}/>
@@ -38,11 +51,21 @@ function App() {
         <Juego siEleccionJugador={eleccionJugador}
           siCambiarELeccionPC={cambiarEleccionPC}
           siCambiarResultadoRonda={cambiarResultadoRonda}
+          siCambiarRonda={cambiarRonda}
+          siPuntajeU={puntajeU}
+          siPuntajeP={puntajeP}
         />
         <Estadisticas siNombreJugador={nombreJugador}
           siEleccionJugador={eleccionJugador}
           siEleccionPC={eleccionPC}
           siResultado={resultadoRonda}
+          siRonda={numeroRonda}
+          siPuntoJugador={puntajeU}
+          siPuntoPC={puntajeP}
+        />
+        <Ganador siNombreJugador={nombreJugador}
+          siPuntajeU={puntajeU}
+          siPuntajeP={puntajeP}
         />
       </div>
     );

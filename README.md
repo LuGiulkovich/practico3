@@ -133,6 +133,10 @@ La solucion fue poner todo en variables para que se actualizaran al toque, ahora
 
 La solucion para los delay que estaba teniendo era que no los llamaba correctamente ó no colocaba las funciones que me tomaban los vlaores de los datos que queria pasar entre componentes.
 
+##### Conocimiento desbloqueado:
+
+Antes de olvidarme acabo de darme cuenta de que el delay en la aparicion de los puntajes se debia a que yo llabama a la funcion juego la cual ejecutaba si yo ganaba mandaba un resultado y luego sumaba mi puntaje pero aparecia luego de la otra ronda porque al ganar se setea un nuevo valor a mi puntaje y luego se mostraba.
+
 ### las variables numericas no se suman
 En este caso tengo los siguiente problemas:
 
@@ -155,6 +159,3 @@ Se suponer que cada vez que haga click en el boton que ejecuta el juego el numer
 
 Para arreglar este problema lo que hice fue crear un estado para las Rondas en este caso y sumarlar en una funcion que luego la agregaria en la funcion que contiene el juego.
 
-#### El puntaje del jugador no se suma
-
-Asi como el titulo dice, estoy probando distintos medios para que se sume dependiendo de quien valla ganando la ronda pero el puntaje lo unico que hace es reinciarse? o algo raro xD.
