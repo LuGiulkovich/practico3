@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export const Juego = ({siEleccionJugador, siCambiarELeccionPC, siCambiarResultadoRonda, siCambiarRonda}) => {
+export const Juego = ({siEleccionJugador, siCambiarELeccionPC, siCambiarResultadoRonda, siCambiarRonda, siBtn}) => {
 
   /** Estados  */
   const [eleccionPC, setEleccionPC] = useState('');
@@ -91,8 +91,6 @@ export const Juego = ({siEleccionJugador, siCambiarELeccionPC, siCambiarResultad
       }
     }
 
-    
-
     /** Le doy un nuevo valor al estado del resultado */
     setResultadoRonda(resultado);
     /** Y la mando al componente padre */
@@ -111,7 +109,9 @@ export const Juego = ({siEleccionJugador, siCambiarELeccionPC, siCambiarResultad
       <button className='Espacio-Btns'
         onClick={() => {
           juego();
-        }}>Jugar</button>
+        }}
+        disabled={siBtn}
+        >Jugar</button>
     </div>
   )
 }

@@ -159,3 +159,18 @@ Se suponer que cada vez que haga click en el boton que ejecuta el juego el numer
 
 Para arreglar este problema lo que hice fue crear un estado para las Rondas en este caso y sumarlar en una funcion que luego la agregaria en la funcion que contiene el juego.
 
+### Desabilitar Boton 
+
+Quiero hacer que cuando uno de los dos "jugadores" gane la partida el boton de jugar se desbilite para volver a empezar pero me surgio un problema. Por pantalla me muestra el resultado de los jugadores pero cuando uno llega a los tres puntos me da la posibilidad de hacer otra jugada y recien ahí me desabilita el boton.
+
+>Arreglar o mejorar el boton
+
+(UPDATE) 28/9/2023:
+
+Para arreglar este problema lo que hice fue:
+
+* EL el componente Ganador.js cree un estado llamado "btn" con valor true.
+* En App.js crear un estado tambien llamado "btn" pero con valor false.
+* Cuando el jugador o la maquina lleguen a 3 puntos una funcion toma el valor true de Ganador.js
+* Luego App.js lo toma y lo setea en el estado btn que estaba en false.
+* Despues lo mando al componente Juego.js que contiene el boton de Jugar y lo desactiva con disabled=true;.

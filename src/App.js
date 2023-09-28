@@ -15,6 +15,7 @@ function App() {
   const [numeroRonda, setNumeroRonda] = useState(0);
   const [puntajeU, setPuntajeU] = useState(0);
   const [puntajeP, setPuntajeP] = useState(0);
+  const [btn, setBtn] = useState(false);
 
   /** Funcion para cambiar el nombre del jugador en App */
   const cambiarNombreJugador = (nombreJugador) => {
@@ -43,32 +44,48 @@ function App() {
     setNumeroRonda(ronda)
   }
 
-     return (
-      <div className="App" id="App">
-        <h1 className='App-header'>Juego de Piedra, Papel y Tijeras</h1>
-        <InterfazUsuario siCambiarNombreJugador={cambiarNombreJugador}/>
-        <EleccionJugadas siCambiarEleccionJugador={cambiaEleccionJugador}/>
-        <Juego siEleccionJugador={eleccionJugador}
-          siCambiarELeccionPC={cambiarEleccionPC}
-          siCambiarResultadoRonda={cambiarResultadoRonda}
-          siCambiarRonda={cambiarRonda}
-          siPuntajeU={puntajeU}
-          siPuntajeP={puntajeP}
-        />
-        <Estadisticas siNombreJugador={nombreJugador}
-          siEleccionJugador={eleccionJugador}
-          siEleccionPC={eleccionPC}
-          siResultado={resultadoRonda}
-          siRonda={numeroRonda}
-          siPuntoJugador={puntajeU}
-          siPuntoPC={puntajeP}
-        />
-        <Ganador siNombreJugador={nombreJugador}
-          siPuntajeU={puntajeU}
-          siPuntajeP={puntajeP}
-        />
-      </div>
-    );
+  const desactivarBtn = (btn) => {
+    setBtn(btn)
   }
 
-  export default App;
+  const reiniciarJuego = () => {
+    setNombreJugador('');
+    setEleccionJugador('');
+    setEleccionPC('');
+    setResultadoRonda('');
+    setNumeroRonda('');
+    setPuntajeU(0);
+    setPuntajeP(0);
+    setBtn(false);
+  }
+
+return (
+  <div className="App" id="App">
+    <h1 className='App-header'>Juego de Piedra, Papel y Tijeras</h1>
+    <InterfazUsuario siCambiarNombreJugador={cambiarNombreJugador} />
+    <EleccionJugadas siCambiarEleccionJugador={cambiaEleccionJugador} />
+    <Juego siEleccionJugador={eleccionJugador}
+      siCambiarELeccionPC={cambiarEleccionPC}
+      siCambiarResultadoRonda={cambiarResultadoRonda}
+      siCambiarRonda={cambiarRonda}
+      siBtn={btn}
+    />
+    <Estadisticas siNombreJugador={nombreJugador}
+      siEleccionJugador={eleccionJugador}
+      siEleccionPC={eleccionPC}
+      siResultado={resultadoRonda}
+      siRonda={numeroRonda}
+      siPuntoJugador={puntajeU}
+      siPuntoPC={puntajeP}
+    />
+    <Ganador siNombreJugador={nombreJugador}
+      siPuntajeU={puntajeU}
+      siPuntajeP={puntajeP}
+      siDesactivar={desactivarBtn}
+    />
+    <button onClick={reiniciarJuego}>Volver a Empezar</button>
+  </div>
+);
+  }
+
+export default App;
