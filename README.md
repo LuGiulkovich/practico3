@@ -174,3 +174,21 @@ Para arreglar este problema lo que hice fue:
 * Cuando el jugador o la maquina lleguen a 3 puntos una funcion toma el valor true de Ganador.js
 * Luego App.js lo toma y lo setea en el estado btn que estaba en false.
 * Despues lo mando al componente Juego.js que contiene el boton de Jugar y lo desactiva con disabled=true;.
+
+### Quitar el display:none;
+
+Quería hacer aparecer el mensaje del ganador al ganar la partida y lo estaba haciendo con
+
+~~~
+document.getElementById('');
+~~~
+
+y agregarle una clase CSS para quitar el
+
+~~~
+display: none;
+~~~
+
+La solucion a este problema fue usar useEffect para validar la cantidad de puntos de los participantes y luego setear un estado llamado mostrar para que con una constante agregar o no la clase que quería y mandar este dato al componente correspondiente.
+
+>*Llora de la alegría*

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 /** Componente que muestra la opcion elegida, tanto del boton del usuario como la de la pc */
-export const EleccionJugadas = ({siCambiarEleccionJugador}) => {
+export const EleccionJugadas = ({ siCambiarEleccionJugador }) => {
   /** Este estado devuelve el texto del boton. String */
   const [eleccionJugador, setEleccionJugador] = useState('');
 
@@ -13,10 +13,16 @@ export const EleccionJugadas = ({siCambiarEleccionJugador}) => {
 
   return (
     <div className='EleccionJugadas'>
-      <h2>Opciones de Juego</h2>
-      <button onClick={() => handleClick('Piedra')}>Piedra</button>
-      <button onClick={() => handleClick('Papel')}>Papel</button>
-      <button onClick={() => handleClick('Tijeras')}>Tijeras</button>
+      <h2 className='EleccionJugadas-h2'>Opciones de Juego</h2>
+      <div className='EleccionJugadas-opciones'>
+        <button className='btn-piedra EleccionJugadas-btn' 
+                onClick={() => handleClick('Piedra')}></button>
+        <button className='btn-papel EleccionJugadas-btn' 
+                onClick={() => handleClick('Papel')}></button>
+        <button className='btn-tijeras EleccionJugadas-btn'
+                onClick={() => handleClick('Tijeras')}></button>
+      </div>
+
     </div>
   )
 }

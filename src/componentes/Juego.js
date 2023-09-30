@@ -40,18 +40,7 @@ export const Juego = ({siEleccionJugador, siCambiarELeccionPC, siCambiarResultad
     puntoPC = numAleatorio;
   }
 
-  /** Funcion que suma en 1 el puntaje del jugador 
-  const sumaU = () => {
-    setPuntajeJugador(puntajeJugador + 1);
-    siCambiarPuntajeU(puntajeJugador);
-  }*/
-
-  /** Funcion que suma en 1 el puntaje de la PC 
-  const sumaP = () => {
-    setPuntajePC(puntajePC + 1);
-    siCambiarPuntajeP(puntajePC);
-  }*/
-
+  /** Funcion para sumar las rondas */
   const sumarRonda = () => {
     setNumRonda(numRonda + 1);
     siCambiarRonda(numRonda);
@@ -105,8 +94,8 @@ export const Juego = ({siEleccionJugador, siCambiarELeccionPC, siCambiarResultad
   }
 
   return (
-    <div className='Btn-Jugar'>
-      <button className='Espacio-Btns'
+    <div className='Juego-div-btn'>
+      <button className='Juego-btn'
         onClick={() => {
           juego();
         }}

@@ -1,24 +1,24 @@
-import React, { useState } from 'react'
+import React from 'react'
 
-export const Ganador = ({siPuntajeU, siPuntajeP, siNombreJugador, siDesactivar}) => {
+export const Ganador = ({ siPuntajeU, siPuntajeP, siNombreJugador, siDesactivar}) => {
 
-    const [btn, setBtn] = useState(true);
+    const verdad = true;
 
+    /** Valiable para mostrar dependiendo del ganador */
     let ganador = '';
-
 
     if (siPuntajeU === 3) {
         ganador = siNombreJugador;
-        siDesactivar(btn);
+        /** Acá le envio un booleano a App.js */
+        siDesactivar(verdad);
     } else if (siPuntajeP === 3) {
         ganador = 'PC';
-        siDesactivar(btn);
+        siDesactivar(verdad);
     }
 
-  return (
-    <div className='EleccionJugadas'>
-        <h1>Ganador</h1>
-        <p>{ganador}</p>
-    </div>
-  )
+    return (
+        <div className='Ganador'>
+            <p>Ganador: {ganador}</p>
+        </div>
+    )
 }

@@ -1,58 +1,317 @@
+@import url('https://fonts.googleapis.com/css2?family=Barriecito&family=Bricolage+Grotesque:opsz@10..48&family=Fredoka&family=Handjet:wght@400;600;700;800&family=Poppins:ital@0;1&family=Rubik&display=swap');
+
 /* Estilos para el div que tiene el ./src/App.js*/
 .App {
-  text-align: center;
-  background: black;
+  font-family: 'Barriecito', sans-serif;
+  margin: 10px auto;
+}
+
+/* Estilos para el ganador */
+.App-ganador {
+  display: none;
+}
+
+/* Estilo para hacer aparecer el mensaje del ganador */
+.App-ganadorMostrar {
+  display: grid;
+}
+
+/* Estilos del div del ganador */
+.Ganador {
+  z-index: 1;
+  background-color: #fff;
+  margin: 20px auto;
+  border: none;
+  padding: 1rem 4rem;
+  color: #000;
+  font-size: 4rem;
+  font-weight: bold;
+  position: relative;
+  border-radius: 12px;
+  transition: box-shadow 0.3s ease;
+}
+
+.Ganador:hover {
+  box-shadow: 0 1rem 2rem #000;
+}
+
+.Ganador::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg,
+  #e60012, #ffe000, #0085d1, #ffe000,
+  #e60012, #ffe000, #0085d1, #ffe000);
+  background-size: 800%;
+  border-radius: 10px;
+  filter: blur(8px);
+  animation: glowing 20s linear infinite;
+}
+
+/* Animación glowing */
+@keyframes glowing {
+  0% {
+      background-position: 0 0;
+  }
+  
+  50% {
+      background-position: 400% 0;
+  }
+
+  100% {
+      background-position: 0 0;
+  }
+}
+
+/* Orden del juego */
+.App-orden {
+  margin: 0 auto;
+  width: fit-content;
+  display: flex;
+}
+
+/* Estilos para el div contenedor del juego*/
+.App-juego {
+  padding: 10px;
+  border: 3px solid #000;
+  border-radius: 5px;
+  transition: box-shadow 0.3s ease;
+}
+
+.App-juego:hover {
+  box-shadow: 0.5rem 0.5rem 3rem #000;
+}
+
+/* Estilos para el div contendor de las estadisticas */
+.App-estadisticasCostado {
+  margin-left: 5px;
+  padding: 10px;
+  border: 3px solid #000;
+  border-radius: 5px;
+  transition: box-shadow .3s ease;
+}
+
+.App-estadisticasCostado:hover {
+  box-shadow: 0.5rem 0.5rem 3rem #000;
 }
 
 /* Estilos para el Header */
 .App-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: #fff;
-  color: #000;
-  border: 3px solid #000;
-  padding: 1rem;
+  margin: 0 auto;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 3rem;
 }
 
 /* Estilos para la interfaz de usuario */
 .InterfazUsuario {
   display: grid;
   margin: 15px auto;
-  background: #fff;
   border: 3px solid #000;
+  border-radius: 5px;
 }
 
-/* Estilos para la eleccion de jugadas */
+/* Estilos para el label */
+.InterfazUsuario-label {
+  text-align: center;
+  margin: 0;
+  padding: 3px;
+  background: #0085d1;
+  color: #fff;
+  font-size: 25px;
+}
+
+/* Estilos para el input */
+.InterfazUsuario-input {
+  margin: 10px auto;
+  padding: 10px;
+  background: #003b5d;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+/* Estilos para el boton confirmar */
+.InterfazUsuario-btn {
+  margin: 0 auto 10px;
+  padding: 10px;
+  background-color: #fff;
+  border: 3px solid #fff;
+  border-radius: 5px;
+  font-family: 'Barriecito', sans-serif;
+  transition: box-shadow 0.3s ease;
+}
+
+.InterfazUsuario-btn:hover {
+  background: #003b5d;
+  border: 3px solid #fff;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Estilos para las opciones */
 .EleccionJugadas {
-  margin: 15px auto;
-  background: #fff;
+  margin: 0 auto;
+  background: #ffe000;
+  color: #fff;
+  text-align: center;
+  display: grid;
+  justify-content: center;
+  border-radius: 5px;
   border: 3px solid #000;
+  font-size: 20px;
 }
 
-.Btn-Jugar {
-  margin: 15px auto;
-  background: #fff;
+.EleccionJugadas-h2 {
+  margin: 10px 0;
+}
+
+.EleccionJugadas-opciones {
+  margin: 10px;
+  padding: 10px;
+  background-color: #877700;
+  border-radius: 5px;
+  justify-content: center;
+  display: flex;
+}
+
+/* Estilos para los botones */
+.EleccionJugadas-btn {
+  margin: 0 10px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  opacity: .5;
+  transition: opacity .3s ease;
+}
+
+.EleccionJugadas-btn:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+/* Imagenes para los botones */
+.btn-piedra {
+  background-image: url(sprites/piedraImg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 100px;
+}
+
+.btn-papel {
+  background-image: url(sprites/papelImg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 100px;
+}
+
+.btn-tijeras {
+  background-image: url(sprites/tijerasImg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 100px;
+}
+
+/* Estilos para el boton jugar */
+.Juego-btn {
+  margin: 10px auto;
+  display: flex;
+  padding: 10px 75px;
+  background-color: yellowgreen;
   border: 3px solid #000;
+  border-radius: 5px;
+  font-size: 2rem;
+  font-family: 'Barriecito', sans-serif;
+  transition: box-shadow 0.3s ease;
 }
 
-.Espacio-Btns {
-  margin: 15px auto;
+.Juego-btn:hover {
+  box-shadow: 0 0.2rem 2rem #000;
+  padding: 15px 80px;
+  cursor: pointer;
 }
 
-/* Estilos para la interfaz de las estadisticas */
-.Ganador {
-  margin: 15px auto;
-  background: #fff;
+/* Estilos para las estadisticas */
+.Estadisticas {
+  text-align: center;
+  width: 300px;
+}
+
+.rojo {
+  background-color: #e60012;
+  color: #000;
+  border-radius: 5px;
+}
+
+.Estadisticas-nombre {
+  background-color: #780f18;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 30px;
+}
+
+/* Estilos para el boton reiniciar */
+.App-btn {
+  margin: 10px auto;
+  padding: 10px 15px;
+  background-color: #fff;
   border: 3px solid #000;
+  border-radius: 5px;
+  font-size: 20px;
+  font-family: 'Barriecito', sans-serif;
+  transition: box-shadow 0.3s ease;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.App-btn:hover {
+  box-shadow: 0 0.2rem 0.5rem #000;
+  cursor: pointer;
+  background-color: #000;
+  color: #fff;
+  border-color: #fff;
+}
+
+/* Estilos para sacar al juego cuando se muestra el mensaje del ganador */
+.App-sacarJuego {
+  display: none;
+}
+
+/* Estilos para los warnings */
+.warning {
+  display: none;
+}
+
+.warning-mostrar {
+  display: grid;
+  background-color: #e83544;
+  border-radius: 20px;
+  animation: deLadoALado 2s infinite;
+}
+
+@keyframes deLadoALado {
+  0% {
+      transform: rotate(5deg);
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+      transform: rotate(-5deg);
+      background-color: #f40519;
+  }
+  100% {
+      transform: rotate(5deg);
   }
 }
+
+/* Estilos para letra blanca */
+.letra-blanca {
+  text-align: center;
+  color: #fff;
+  font-size: 20px;
+}
+

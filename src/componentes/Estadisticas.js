@@ -1,15 +1,24 @@
 import React from 'react'
 
 export const Estadisticas = ({siNombreJugador, siEleccionJugador, siEleccionPC, siResultado, siRonda, siPuntoJugador, siPuntoPC}) => {
+  
   return (
-    <div className='EleccionJugadas'>
-        <h2>Estadisticas</h2>
-        <h3>Ronda {siRonda}</h3>
-        <p>Nombre del Jugador: {siNombreJugador}</p>
-        <p>Eleccion del Jugador: {siEleccionJugador}</p>
-        <p>Eleccion de la PC: {siEleccionPC}</p>
-        <p>Resultado de Ronda: {siResultado}</p>
-        <h3>Puntaje</h3>
+    <div className='Estadisticas'>
+      <div className='rojo'>
+        <h2>Ronda {siRonda}</h2>
+      </div>
+        <p>Nombre del Jugador:</p>
+        <h2 className='Estadisticas-nombre'>{siNombreJugador}</h2>
+        <p>Eleccion del Jugador:</p>
+        <p>{siEleccionJugador}</p>
+        <div></div>
+        <p>Eleccion de la PC:</p>
+        <p>{siEleccionPC}</p>
+        <p>Resultado de Ronda:</p>
+        <h2>{siResultado}</h2>
+      <div className='rojo'>
+        <h2>Puntaje</h2>
+      </div>
         <p>Jugador: {siPuntoJugador}</p>
         <p>PC: {siPuntoPC}</p>
     </div>
