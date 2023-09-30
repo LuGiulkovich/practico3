@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { OpcionVacia } from './OpcionVacia';
 
 export const Juego = ({siEleccionJugador, siCambiarELeccionPC, siCambiarResultadoRonda, siCambiarRonda, siBtn}) => {
 
   /** Estados  */
   const [eleccionPC, setEleccionPC] = useState('');
   const [resultadoRonda, setResultadoRonda] = useState('');
+  const [mostrarSinOpcion, setMostrarSinOpcion] = useState(false);
   /** Estado para contar las rondas */
   const [numRonda, setNumRonda] = useState(1);
 
@@ -48,6 +50,14 @@ export const Juego = ({siEleccionJugador, siCambiarELeccionPC, siCambiarResultad
 
   /** Funcion que contiene el juego */
   const juego = () => {
+
+    if (siEleccionJugador === 'Piedra' ||siEleccionJugador === 'Papel' ||siEleccionJugador === 'Tijeras') {
+      setMostrarSinOpcion(false);
+    } else {
+      setMostrarSinOpcion(true);
+      return;
+    }
+
     /** Sumamos la Ronda */
     sumarRonda();
     /** Genero el numero aleatorio */
@@ -93,8 +103,13 @@ export const Juego = ({siEleccionJugador, siCambiarELeccionPC, siCambiarResultad
     console.log('Resultado de la ronda: ' + resultado);
   }
 
+  const mostrarWarning = mostrarSinOpcion ? 'warning-mostrar' : 'warning';
+
   return (
     <div className='Juego-div-btn'>
+      <div className={mostrarWarning}>
+        <OpcionVacia />
+      </div>
       <button className='Juego-btn'
         onClick={() => {
           juego();
