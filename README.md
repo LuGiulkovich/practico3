@@ -5,6 +5,15 @@ Este proyecto está destinado a aplicar los conocimientos vistos sobre React, ha
 Aquí está el link para entrar:
 * [practico3] (https://lugiulkovich.github.io/practico3/)
 
+## Reglas 
+
+* Ingresar un nombre de jugador:
+** Este no puede contener numeros, espacios o estar vacio.
+* Elegir una opcion:
+** Parece obvio pero el juego no comenzará hasta elegir una opcion.
+*El mejor de 5:
+** Ganará quien sea el mejor de 5 puntos.
+
 ## Prueba y error
 
 ### 1er Error: Estados
@@ -137,11 +146,8 @@ La solucion para los delay que estaba teniendo era que no los llamaba correctame
 
 Antes de olvidarme acabo de darme cuenta de que el delay en la aparicion de los puntajes se debia a que yo llabama a la funcion juego la cual ejecutaba si yo ganaba mandaba un resultado y luego sumaba mi puntaje pero aparecia luego de la otra ronda porque al ganar se setea un nuevo valor a mi puntaje y luego se mostraba.
 
-### las variables numericas no se suman
-En este caso tengo los siguiente problemas:
-
 #### Las rondas no se suman
-Tengo e¿la siguiente linea de codigo:
+Tengo la siguiente linea de codigo:
 
 ~~~
 let numeroRonda = 0;
@@ -153,7 +159,7 @@ const juego = () => {
 }
 ~~~
 
-Se suponer que cada vez que haga click en el boton que ejecuta el juego el numero de rondas deberia aumentar, bueno no es el caso.
+Se supone que cada vez que haga click en el boton que ejecuta el juego el numero de rondas deberia aumentar, bueno no es el caso.
 
 >Arreglar suma de variables
 
@@ -192,3 +198,19 @@ display: none;
 La solucion a este problema fue usar useEffect para validar la cantidad de puntos de los participantes y luego setear un estado llamado mostrar para que con una constante agregar o no la clase que quería y mandar este dato al componente correspondiente.
 
 >*Llora de la alegría*
+
+## Informacion utilizada
+
+Para este practico me ayude con la info siguiente:
+
+* [ChatGPT] (https://chat.openai.com/)
+
+* [React Page] (https://react.dev/learn/react-developer-tools)
+
+* [Validacion Input] (https://www.youtube.com/watch?v=s3pC93LgP18&t=919s)
+
+* [useEffect] (https://www.youtube.com/watch?v=tu2p6Oiq3VI)
+
+* [Argentina Programa] (https://sites.google.com/unc.edu.ar/argentinaprograma/p%C3%A1ginas-web-con-componentes-din%C3%A1micos/videos/teoricos)
+
+*
